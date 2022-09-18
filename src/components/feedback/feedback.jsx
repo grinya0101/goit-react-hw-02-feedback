@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
 
-const Counter = ({choiceGoodq, choiceNeutralq, choiceBadq}) => (
+const Counter = ({choiceState}) => (
         <>
             
-           <button type="button" onClick={choiceGoodq}>Good</button>
-           <button type="button" onClick={choiceNeutralq}>Neutral</button>
-           <button type="button" onClick={choiceBadq}>Bad</button>
+           <button type="button" onClick={() => choiceState("good")}>Good</button>
+           <button type="button" onClick={() => choiceState("neutral")}>Neutral</button>
+           <button type="button" onClick={() => choiceState("bad")}>Bad</button>
            
         </>
     )

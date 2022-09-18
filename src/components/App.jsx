@@ -12,33 +12,26 @@ export class App extends Component {
     bad: 0,
   };
 
-  choiceGood = () => {
-    this.setState((prevState) => {
+  /* выбор отзыва гуд ... */
+  choiceState = (propertyName) => {
+    
+     this.setState((prevState) => {
+       /* объект с 3ма отзывами и клаками на каждом отзыве сколько кликов */
+         /* отдельная цифра сколько кликнули  2, 4 , 6*/
+      const value = prevState[propertyName];
+     
        return {
-         good: prevState.good + 1
+        [propertyName]: value + 1
          
        };
+       
+       
     })
+    
  };
 
 
- choiceNeutral = () => {
-  this.setState((prevState) => {
-     return {
-      neutral: prevState.neutral + 1
-       
-     }
-  })
-};
-
-choiceBad = () => {
-  this.setState((prevState) => {
-     return {
-      bad: prevState.bad + 1
-       
-     }
-  })
-};
+ 
 
 
 totalFeedback(){
@@ -55,9 +48,7 @@ totalFeedback(){
   <div>
   <Section title="Please leave feedback">
    <Counter  
-  choiceGoodq={this.choiceGood}
-  choiceNeutralq={this.choiceNeutral}
-  choiceBadq={this.choiceBad}
+  choiceState={this.choiceState}
   />
 
   </Section>
