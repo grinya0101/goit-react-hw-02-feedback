@@ -1,19 +1,31 @@
 import PropTypes from 'prop-types';
 
-const Counter = ({choiceState}) => (
-        <>
-            
-           <button type="button" onClick={() => choiceState("good")}>Good</button>
-           <button type="button" onClick={() => choiceState("neutral")}>Neutral</button>
-           <button type="button" onClick={() => choiceState("bad")}>Bad</button>
-           
-        </>
-    )
+
+export const Feedback = ({ options, choiceState }) => {
+  return (
+    <>
+      {options.map(option => {
+        return (
+          <span key={option}>
+           <button type="button"
+              name={option}
+              onClick={() => {
+                choiceState(option);
+              }}
+            >
+              {option}</button>
+          
+          </span>
+        );
+      })}
+    </>
+  );
+};
   
     
-export default Counter;
+export default Feedback;
 
-Counter.propTypes = {
+Feedback.propTypes = {
   choiceGoodq: PropTypes.func,
   choiceNeutralq: PropTypes.func,
   choiceBadq: PropTypes.func,

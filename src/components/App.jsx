@@ -1,8 +1,9 @@
-import Counter from 'components/feedback/feedback'
-import Statistics from 'components/statistics/statistics'
+import {Feedback, ButtonContainer, } from 'components/Feedback/Feedback'
+import Statistics from 'components/Statistics/Statistics'
 import { Component } from "react";
 import Notification from 'components/Notification/notification'
 import Section from 'components/Section/Section'
+
 
 export class App extends Component {
   
@@ -43,11 +44,13 @@ totalFeedback(){
  };
 
  render(){
+  const options = ['good', 'neutral', 'bad'];
   return (
   <>
   <div>
   <Section title="Please leave feedback">
-   <Counter  
+   <Feedback 
+   options={options} 
   choiceState={this.choiceState}
   />
 
